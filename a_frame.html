@@ -1,0 +1,59 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://aframe.io/releases/1.0.3/aframe.min.js"></script>
+    <title>HW1 aframe</title>
+</head>
+
+<body>
+    <a-scene>
+        <a-text value="Yangtao Zhang" position="0 3 -4"></a-text>
+        <a-entity id="mouseCursor" cursor="rayOrigin: mouse"></a-entity>
+        <a-assets>
+            <a-asset-item id="wolf" src="Wolves.gltf"></a-asset-item>
+            <a-asset-item id="mountain" src="Mountain_01.gltf"></a-asset-item>
+            <audio id="bark" src="bark.mp3" preload="auto"></audio>
+        </a-assets>
+
+        <a-plane position="0 0 -1" rotation="-90 0 0" width="10" height="2" color="#FFFFFF" shadow></a-plane>
+        <!-- https://poly.google.com/view/46bXrRt8pFF -->
+        <a-gltf-model src="#wolf" position="0 0 -1.5"
+            animation="property: position; easing: easeInOutQuad; dir: alternate; dur: 2000; to: 0 0 -1.2; loop: true"
+            rotation="0 -45 0" scale="0.2 0.2 0.2"
+            sound="src: #bark; on: click"
+            ></a-gltf-model>
+        <!-- <a-box position="0 1 -1" rotation="0 45 0" width="0.5" height="1" depth="0.5" color="#36484F" shadow></a-box> -->
+        <a-entity gltf-model="#wolf" position="1 0 -1.5" rotation="0 0 0" scale="0.1 0.1 0.1"
+        animation__mouseenter="property: rotation; from: 0 0 0; to: 0 90 0; startEvents: mouseenter; dur: 500"
+        animation__mouseleave="property: rotation; from: 0 90 0; to: 0 0 0; startEvents: mouseleave; dur: 500"
+        ></a-entity>
+        <a-entity gltf-model="#wolf" position="-1 0 -1.5" rotation="0 0 0" scale="0.1 0.1 0.1"
+        animation__mouseenter="property: scale; from: 0.1 0.1 0.1; to: 0.2 0.2 0.2; startEvents: mouseenter; dur: 500"
+        animation__mouseleave="property: scale; from: 0.2 0.2 0.2; to: 0.1 0.1 0.1; startEvents: mouseleave; dur: 500"
+        ></a-entity>
+        
+
+
+        <!-- https://poly.google.com/view/0Fl55ZzsVzT -->
+        <a-gltf-model id="right_mountain" src="#mountain" position="2 0 -2.7" scale="0.4 0.4 0.4"
+        ></a-gltf-model>
+        <a-gltf-model id="left_mountain" src="#mountain" position="-2 0 -2.7" scale="0.4 0.4 0.4"></a-gltf-model>
+        <a-gltf-model id="mid_mountain" src="#mountain" position="0 0 -2.8" scale="0.3 0.3 0.3"></a-gltf-model>
+
+
+        <!-- <a-cone position="3 1 -4" color="#CDC0B2" radius-bottom="3" radius-top="0" height="5"></a-cone>
+
+        <a-cone position="-3 1 -4" color="#586E82" radius-bottom="3" radius-top="0" height="4"></a-cone>
+        <a-cone position="0 -1 -4" color="#E1D8CC" radius-bottom="3" radius-top="0" height="8"></a-cone> -->
+
+        <a-sky color="#C0D2DE"></a-sky>
+
+
+
+
+    </a-scene>
+
+</body>
